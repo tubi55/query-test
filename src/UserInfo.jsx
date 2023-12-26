@@ -13,10 +13,11 @@ export default function UserInfo() {
     isStale, isFresh: 최신데이터 유무 (stale: false(최신상태), true(옛날상태) )
     refetch: 비동기 데이터 강제 재요청 함수
   */
-  const { data, isLoading, isSuccess, isError } = useQuery({
+  const { data, isLoading, isSuccess } = useQuery({
     queryKey: ['users'],
     queryFn: fetchUser,
   });
+  //useQuery이용시 useState를 통한 지역스테이트 생성, useEffet를 통한 fetching함수 호출, useCallback을 통한 메모이제이션처리 안해도 한번에 useQuery가 위의 모든 작업을 대신 처리해줌
 
   return (
     <div className="UserInfo">
